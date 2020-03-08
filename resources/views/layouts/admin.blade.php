@@ -199,7 +199,7 @@
             <a href="{{ Route('admin.customers.index') }}" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Membership
+                Customers
               </p>
             </a>
           </li>

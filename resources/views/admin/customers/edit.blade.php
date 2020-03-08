@@ -54,13 +54,13 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-xs-8 col-sm-9 col-lg-7">
-                                <label for="cust_addres">Address</label>
-                                <input name="cust_addres" type="text" class="form-control" id="cust_address" aria-describedby="addressHelp" autocomplete="off" placeholder="Enter Address." value={{ old('cust_addres') ?? $customer->cust_address }}>
+                                <label for="cust_address">Address</label>
+                                <input name="cust_address" type="text" class="form-control" id="cust_address" aria-describedby="addressHelp" autocomplete="off" placeholder="Enter Address." value={{ old('cust_address') ?? $customer->cust_address }}>
                                 <small id="addressHelp" class="form-text text-muted">Enter your address.</small>
                             </div>
                         </div>
                         
-                        @error('cust_addres')
+                        @error('cust_address')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>
@@ -85,7 +85,7 @@
                         <div class="row">
                             <div class="col-xs-8 col-sm-9 col-lg-7">
                                 <label for="cust_phone">Phone No.</label>
-                                <input name="cust_phone" type="text" class="form-control" id="cust_phone" minlength="10" maxlength="11" autocomplete="off" aria-describedby="phoneHelp" size="50" placeholder="Enter Phone No." value={{ old('phone') ?? $customer->cust_phone }} >
+                                <input name="cust_phone" type="text" class="form-control" id="cust_phone" minlength="10" maxlength="11" autocomplete="off" aria-describedby="phoneHelp" size="50" placeholder="Enter Phone No." value={{ old('cust_phone') ?? $customer->cust_phone }} >
                                 <small id="phoneHelp" class="form-text text-muted">Enter your phone number.</small>
                             </div>
                         </div>

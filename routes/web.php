@@ -17,5 +17,6 @@ Route::get('/', function () {
 
 Route::get('/admin', 'HomeController@index')->name('home');
 Route::resource('/admin/employees', 'Admin\EmployeesController', ['as'=>'admin']);
+
 Route::resource('/admin/customers', 'Admin\CustomersController', ['as'=>'admin']);
 //Route::get('admin/employees', 'EmployeesController@index')->name('employee_list');
