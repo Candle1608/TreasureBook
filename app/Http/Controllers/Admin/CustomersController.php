@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Employee;
+use App\Customer;
 
-class EmployeesController extends Controller
+class CustomersController extends Controller
 {
     public function __construct(){
         $this->middleware('auth'); 
@@ -16,9 +16,9 @@ class EmployeesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {      
-        $employees = Employee::all();      
-        return view('admin.employees.index', compact(['employees']));
+    {
+        $customers = Customer::all();      
+        return view('admin.customers.index', compact(['customers']));
     }
 
     /**
@@ -59,9 +59,9 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Customer $customer)
     {
-        //
+        return view('admin.customers.edit', compact('customer'));
     }
 
     /**
@@ -71,9 +71,11 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Customer $customer)
     {
-        //
+        $customer->update($this->validateData());
+        
+        return redirect()->route('admin.customers.index');
     }
 
     /**
@@ -84,6 +86,18 @@ class EmployeesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Customer::destroy($id);
+        return redirect()->route('admin.customers.index');
+    }
+
+    protected function validateData(){
+        return request()->validate([
+            'cust_name' =>' required',
+            'cust_ic_no' => 'required|min:12|max:12',
+            'cust_address' => 'required',
+            'cust_email' => 'required|email',
+            'cust_phone' => 'required|min:10|max:11',
+
+        ]);
     }
 }
