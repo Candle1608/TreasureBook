@@ -12,11 +12,12 @@
 */
 Auth::routes();
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('layouts.welcome');
+})->name('welcome');
 
 Route::get('/admin', 'HomeController@index')->name('home');
 Route::resource('/admin/employees', 'Admin\EmployeesController', ['as'=>'admin']);
-
 Route::resource('/admin/customers', 'Admin\CustomersController', ['as'=>'admin']);
 //Route::get('admin/employees', 'EmployeesController@index')->name('employee_list');
+
+Route::get('/employee', 'HomeController@index2')->name('home2');

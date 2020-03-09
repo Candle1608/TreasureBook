@@ -102,11 +102,12 @@ class EmployeesController extends Controller
 
     protected function validateData(){
         return request()->validate([
-            'name' =>' required',
-            'ic_no' => 'required|min:12|max:12',
-            'address' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required|min:10|max:11',
+            'emp_name' =>' required',
+            'emp_ic_no' => 'required|min:12|max:12',
+            'emp_address' => 'required',
+            'emp_email' => 'required|email',
+            'emp_password' => 'required|min:8',
+            'emp_phone' => 'required|min:10|max:11',
 
         ]);
     }
