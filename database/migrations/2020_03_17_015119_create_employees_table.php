@@ -21,7 +21,7 @@ class CreateEmployeesTable extends Migration
             $table->string('emp_address');
             $table->string('emp_phone');
             $table->string('emp_password');
-            $table->boolean('is_editor')->default(false);
+            $table->boolean('emp_status')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });
