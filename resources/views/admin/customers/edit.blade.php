@@ -10,7 +10,7 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{ Route('home') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ Route('admin.dashboard') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active">Edit Customers</li>
             </ol>
             </div><!-- /.col -->
@@ -19,7 +19,7 @@
     </div>
     <section class="content">
         <div class="container-fluid">
-            <form method="post" action="{{ route('admin.customers.update', $customer->id)}}">
+            <form method="post" action="{{ route('customers.update', $customer->id)}}">
                 @method('PATCH')
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">

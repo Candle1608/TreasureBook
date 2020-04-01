@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Employee;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Customer;
+use App\Book;
 
-class CustomersController extends Controller
+class BooksController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth:admin'); 
+        $this->middleware('auth:employee'); 
     }
     /**
      * Display a listing of the resource.
@@ -17,8 +18,9 @@ class CustomersController extends Controller
      */
     public function index()
     {
-        $customers = Customer::all();      
-        return view('admin.customers.index', compact(['customers']));
+        $books = Book::all();
+        return view('employee.books.index', compact(['books']));
+        
     }
 
     /**
@@ -28,7 +30,7 @@ class CustomersController extends Controller
      */
     public function create()
     {
-        //
+        return view('employee.books.create');
     }
 
     /**
@@ -59,9 +61,9 @@ class CustomersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $customer)
+    public function edit($id)
     {
-        return view('admin.customers.edit', compact('customer'));
+        //
     }
 
     /**
@@ -71,11 +73,9 @@ class CustomersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request, $id)
     {
-        $customer->update($this->validateData());
-        
-        return redirect()->route('customers.index');
+        //
     }
 
     /**
@@ -86,18 +86,6 @@ class CustomersController extends Controller
      */
     public function destroy($id)
     {
-        Customer::destroy($id);
-        return redirect()->route('customers.index');
-    }
-
-    protected function validateData(){
-        return request()->validate([
-            'cust_name' =>' required',
-            'cust_ic_no' => 'required|min:12|max:12',
-            'cust_address' => 'required',
-            'cust_email' => 'required|email',
-            'cust_phone' => 'required|min:10|max:11',
-
-        ]);
+        //
     }
 }

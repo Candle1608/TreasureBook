@@ -20,7 +20,7 @@ class CreateEmployeesTable extends Migration
             $table->string('emp_email')->unique();
             $table->string('emp_address');
             $table->string('emp_phone');
-            $table->string('emp_password');
+            $table->string('password');
             $table->boolean('emp_status')->default(true);
             $table->rememberToken();
             $table->timestamps();

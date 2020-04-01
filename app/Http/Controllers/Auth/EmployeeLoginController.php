@@ -6,31 +6,31 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 
-class AdminLoginController extends Controller
+class EmployeeLoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:admin');
+        $this->middleware('guest:employee');
     }
 
     public function showLoginForm(){
-        return view('auth.admin-login');
+        return view('auth.employee-login');
     }
 
     public function login(Request $request){
         // Validate the form data
         $this->validate($request, [
-            'admin_email' => 'required|email',
+            'emp_email' => 'required|email',
             'password' => 'required|min:8',
         ]);
 
         // Attempt to log the user in
-        if (Auth::guard('admin')->attempt(['admin_email' => $request->admin_email, 'password' => $request->password], $request->remember)){
+        if (Auth::guard('employee')->attempt(['emp_email' => $request->emp_email, 'password' => $request->password], $request->remember)){
             // If successful, then redirect to their intended location
-            return redirect()->intended(route('admin.dashboard'));
+            return redirect()->intended(route('employee.dashboard'));
         }
     
         // If unsuccessful, then redirect back to the login with the form data
-        return redirect()->back()->withInput($request->only('admin_email','remember'));
+        return redirect()->back()->withInput($request->only('emp_email','remember'));
     }
 }

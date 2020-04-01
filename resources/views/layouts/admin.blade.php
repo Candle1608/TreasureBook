@@ -167,7 +167,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{ asset('dist/img/background.png')}}" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('dist/img/dila.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">Norfadila</a>
@@ -187,19 +187,41 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{ Route('admin.employees.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Employees
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ Route('admin.customers.index') }}" class="nav-link">
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Customers
+                Manage Data
+                <!--<i class="fas fa-angle-left right"></i>
+                <span class="badge badge-info right">6</span> -->
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('employees.index') }}" class="nav-link">
+                  <i class="far nav-icon"></i>
+                  <p>Employee Data</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('customers.index') }}" class="nav-link">
+                  <i class="far nav-icon"></i>
+                  <p>Customer Data</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far nav-icon"></i>
+                  <p>Book Data</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Rented Transaction
               </p>
             </a>
           </li>

@@ -5,19 +5,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('ADMIN Login') }}</div>
+                <div class="card-header">{{ __('EMPLOYEE Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.login.submit') }}">
+                    <form method="POST" action="{{ route('employee.login.submit') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="admin_email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="emp_email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="admin_email" type="email" class="form-control @error('admin_email') is-invalid @enderror" name="admin_email" value="{{ old('admin_email') }}" required autocomplete="admin_email" autofocus>
+                                <input id="emp_email" type="email" class="form-control @error('emp_email') is-invalid @enderror" name="emp_email" value="{{ old('emp_email') }}" required autocomplete="emp_email" autofocus>
 
-                                @error('admin_email')
+                                @error('emp_email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

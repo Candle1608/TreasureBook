@@ -9,7 +9,7 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{ Route('home') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                 <li class="breadcrumb-item active">Customers</li>
             </ol>
             </div><!-- /.col -->
@@ -36,9 +36,9 @@
                     <td>{{ $customer->cust_address }}</td>
                     <td>{{ $customer->cust_email }}</td>
                     <td>{{ $customer->cust_phone }}</td>
-                    <td><a href="{{ route('admin.customers.edit', $customer->id) }}" class="btn btn-info">Edit</a>
+                    <td><a href="{{ route('customers.edit', $customer->id) }}" class="btn btn-info">Edit</a>
                         <a href="javascript:void(0)" onclick="$(this).parent().find('form').submit()" class="btn btn-danger">Delete</a>
-                        <form action="{{ route('admin.customers.destroy', $customer->id) }}" method="post">
+                        <form action="{{ route('customers.destroy', $customer->id) }}" method="post">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             @method('DELETE')
                         </form>

@@ -9,7 +9,7 @@ use App\Employee;
 class EmployeesController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth'); 
+        $this->middleware('auth:admin'); 
     }
     /**
      * Display a listing of the resource.
@@ -46,7 +46,7 @@ class EmployeesController extends Controller
         ])); */
         Employee::create($this->validateData());
 
-        return redirect()->route('admin.employees.index');
+        return redirect()->route('employees.index');
 
     }
 
@@ -56,9 +56,9 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Employee $employee)
     {
-        
+        return view('admin.employees.show', compact('employee')); 
     }
 
     /**
@@ -83,7 +83,7 @@ class EmployeesController extends Controller
     {
         $employee->update($this->validateData());
         
-        return redirect()->route('admin.employees.index');
+        return redirect()->route('employees.index');
         //$employee->update($this->validateData());
     }
 
@@ -97,7 +97,7 @@ class EmployeesController extends Controller
     {
         //$employee->delete();
         Employee::destroy($id);
-        return redirect()->route('admin.employees.index');
+        return redirect()->route('employees.index');
     }
 
     protected function validateData(){

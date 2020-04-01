@@ -10,13 +10,14 @@ class Employee extends Authenticatable
 {
     use Notifiable;
 
+    protected $guard = 'employee';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'emp_name', 'emp_email', 'emp_password', 'emp_ic_no', 'emp_address', 'emp_phone',
+        'emp_name', 'emp_email', 'password', 'emp_ic_no', 'emp_address', 'emp_phone',
     ];
 
     /**
@@ -25,7 +26,7 @@ class Employee extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'emp_password', 'remember_token',
+        'password', 'remember_token',
     ];
 
     /**

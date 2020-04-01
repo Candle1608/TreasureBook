@@ -49,8 +49,8 @@
         <ul class="nav-menu">
           <li class="menu-active"><a href="{{ route('welcome') }}">Home</a></li>
           <li><a href="#about">About Us</a></li>
-          <li><a href="{{ route('login') }}">Admin</a></li>
-          <li><a href="#">Employee</a></li>
+          <li><a href="{{ route('admin.login') }}">Admin</a></li>
+          <li><a href="{{ route('employee.login') }}">Employee</a></li>
           <li class="menu-has-children"><a href="">Drop Down</a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
